@@ -1,7 +1,7 @@
 <%#В шаблоне show мы пишем html-код для вывода внутреннго содержимого страницы пользователя%>
 
 <%#Блок с информацией о пользователей%>
-<div class="user-header text-center">
+<div class="user-header text-center" style="background-color: <%= @user.background_color %>">
   <h1 class="title-medium">
     <%= @user.name %>
   </h1>
@@ -22,11 +22,14 @@
     </div>
   </h2>
 
+
   <div class="user-ask-button container text-center">
     <%#Используем встроенный в rails хелпер link_to%>
     <%= link_to "Спроси меня", '', class: 'button button-light', id: 'ask-button' %>
   </div>
+
 </div>
+
 
 <%#Блок с формой для задавания пользователю вопроса%>
 <div class="user-question-form-div column-1-4 column-1-4-right" id='ask-form'>
