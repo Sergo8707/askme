@@ -14,6 +14,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'uglifier'
 end
 
 group :development do
