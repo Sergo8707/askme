@@ -55,7 +55,7 @@
         </div>
 
         <div class="form-action buffer-top">
-          <%= link_to "Delete my profile ", user_path(@user), data: {confirm: "Are you sure?"}, method: :delete if current_user == @user %>
+          <%= link_to "Удалить мой профиль ", user_path(@user), data: {confirm: "Вы уверены?"}, method: :delete if current_user == @user %>
         </div>
     <% end %>
   </div>
