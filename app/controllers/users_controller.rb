@@ -47,6 +47,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted."
+    redirect_to users_url
+  end
+
   # Это действие отзывается, когда пользователь заходит по адресу
   # /users/:id, например /users/1
   def show
