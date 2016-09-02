@@ -10,6 +10,14 @@ module ApplicationHelper
     end
   end
 
+  def user_name(user)
+    if user.name.present?
+      user.name
+    else
+      'Инкогнито'
+    end
+  end
+
 
   # Хелпер, рисующий span тэг с иконкой из font-awesome
   def fa_icon(icon_class)
