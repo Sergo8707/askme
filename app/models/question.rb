@@ -9,4 +9,8 @@ class Question < ActiveRecord::Base
   # если задан пустой text, объект не будет сохранен в базу
   validates :text, presence: true, length: {maximum: 255}
   validates :user, presence: true
+
+  validates :text, :user, presence: true
+
+  belongs_to :questioning_user, class_name: 'User'
 end

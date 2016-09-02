@@ -79,3 +79,4 @@ class UsersController < ApplicationController
                                  :name, :username, :avatar_url, :background_color)
   end
 end
+

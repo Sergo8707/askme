@@ -14,6 +14,16 @@
       <%= question.text %>
     </div>
 
+    <div class="question-text_author">
+    <% author = User.find(question.author_id) if question.author_id.present? %>
+
+      <% if author.nil? %>
+          <p>Автор: Аноним</p>
+      <% else %>
+          <p>Автор: <%= link_to author.name, user_path(author) %></p>
+      <% end %>
+    </div>
+
     <!-- Если вопрос имеет ответ, показать его -->
     <% if question.answer.present? %>
         <div class="question-answer text-lead">
