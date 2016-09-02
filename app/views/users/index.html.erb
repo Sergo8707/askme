@@ -1,5 +1,5 @@
 <%# Этот шаблон отрисуется, когда пользователь захочет посмотреть список пользователей %>
-<div class="content-wrapper buffer-both text-center">
+<div class="content-wrapper buffer-both text-center" xmlns="http://www.w3.org/1999/html">
   <div class="buffer-both">
     <h1 class="title-medium">Наши пользователи</h1>
   </div>
@@ -16,7 +16,7 @@
           <%# страницы пользователя, например /users/1 %>
           <%= link_to image_tag(user_avatar(user), class: 'user-image'), user_path(user) %>
         </div>
-        <%= link_to name(user), class: 'text-small' %>
+        <span class="badge_name"><%= link_to user_name(user), user_path(user), class: 'white' %></span>
       </div>
   <% end %>
 </div>

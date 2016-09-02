@@ -7,6 +7,8 @@
 <!-- Определяем какая будет иконка -->
 <% action_icon = question.answer.blank? ? 'reply' : 'pencil' %>
 
+<% author = User.find(question.author_id) if question.author_id.present? %>
+
 
 <div class="question">
   <div class="question-content">
@@ -14,26 +16,22 @@
       <%= question.text %>
     </div>
 
-    <div class="question-text_author">
-    <% author = User.find(question.author_id) if question.author_id.present? %>
-
-      <% if author.nil? %>
-          <p>Автор: Аноним</p>
-      <% else %>
-          <p>Автор: <%= link_to author.name, user_path(author) %></p>
-      <% end %>
-    </div>
-
     <!-- Если вопрос имеет ответ, показать его -->
     <% if question.answer.present? %>
         <div class="question-answer text-lead">
-          <%= question.answer %>
+          <%= question.answer if question.answer.present? %>
         </div>
     <% end %>
 
     <div class="question-date">
-      <!-- Локализованный вывод даты вопроса в коротком формате -->
-      <%= l(question.created_at, format: :short) %>
+      <div class="text-small">
+        <% if author == nil %>
+            <p>Спросил
+              аноним&nbsp;<%= l(question.created_at, format: :short) %></p><!-- Локализованный вывод даты вопроса в коротком формате -->
+        <% else %>
+            <p>Спросил&nbsp;<%= link_to author.name, user_path(author), style: 'text-decoration: underline' %>&nbsp;<%= l(question.created_at, format: :short) %></p>
+        <% end %>
+      </div>
     </div>
   </div>
 

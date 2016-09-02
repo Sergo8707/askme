@@ -10,13 +10,13 @@ module ApplicationHelper
     end
   end
 
-  def name(user)
+  def user_name(user)
     if user.name.present?
       user.name
     else
-      asset_path 'аноним'
+      'Инкогнито'
     end
-    end
+  end
 
 
   # Хелпер, рисующий span тэг с иконкой из font-awesome

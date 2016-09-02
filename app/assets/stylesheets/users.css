@@ -53,6 +53,10 @@
   background: #D9E6E5;
 }
 
+.white {
+    color: #ffffff;
+}
+
 
 @media (max-width: 960px) {
   .user-question-form {

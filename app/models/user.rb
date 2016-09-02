@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :questions
 
   validates :username, presence: true, length: {maximum: 40}, :format => {:with => /\A[a-zA-Z0-9_]+\z/}, uniqueness: {case_sensitive: false}
+  validates :name, presence: true, length: {maximum: 12}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: {with: VALID_EMAIL_REGEX}
 
