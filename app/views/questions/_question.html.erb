@@ -7,7 +7,7 @@
 <!-- Определяем какая будет иконка -->
 <% action_icon = question.answer.blank? ? 'reply' : 'pencil' %>
 
-<% author = User.find(question.author_id) if question.author_id.present? %>
+
 
 
 <div class="question">
@@ -25,11 +25,11 @@
 
     <div class="question-date">
       <div class="text-small">
-        <% if author == nil %>
+        <% if question.author == nil %>
             <p>Спросил
               аноним&nbsp;<%= l(question.created_at, format: :short) %></p><!-- Локализованный вывод даты вопроса в коротком формате -->
         <% else %>
-            <p>Спросил&nbsp;<%= link_to author.name, user_path(author), style: 'text-decoration: underline' %>&nbsp;<%= l(question.created_at, format: :short) %></p>
+            <p>Спросил&nbsp;<%= link_to question.author.name, user_path(question.author), style: 'text-decoration: underline' %>&nbsp;<%= l(question.created_at, format: :short) %></p>
         <% end %>
       </div>
     </div>

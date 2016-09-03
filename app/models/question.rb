@@ -9,4 +9,9 @@ class Question < ActiveRecord::Base
   # если задан пустой text, объект не будет сохранен в базу
   validates :text, presence: true, length: {maximum: 255}
   validates :user, presence: true
+
+  def author
+    @author = User.find(author_id) if author_id.present?
+  end
+
 end
