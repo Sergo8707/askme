@@ -48,7 +48,9 @@
           <%= f.label "Ваш вопрос для @#{@user.username}", class: 'form-label' %>
           <%= f.text_area :text, class: 'form-textarea' %>
         </div>
-        <%= recaptcha_tags size: 'compact'; %>
+
+          <%= recaptcha_tags size: 'compact' %>
+
         <div class="form-action">
           <%= submit_tag 'Задать вопрос', class: 'button button-small button-dark' %>
         </div>
