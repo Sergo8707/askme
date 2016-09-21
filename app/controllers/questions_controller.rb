@@ -19,13 +19,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
 
-<<<<<<< HEAD
     if check_captcha(@question) && @question.save
-=======
-    @question.author_id = current_user.id if current_user.present?
-
-    if @question.save
->>>>>>> 79e5cd1f62f04b9ed21d7449ec8b22f6f02217a8
       redirect_to user_path(@question.user), notice: 'Вопрос задан'
     else
       render :new
