@@ -10,6 +10,8 @@ class Question < ActiveRecord::Base
   validates :text, presence: true, length: {maximum: 255}
   validates :user, presence: true
 
+  belongs_to :author, class_name: 'User'
+
   def author
     @author = User.find(author_id) if author_id.present?
   end
