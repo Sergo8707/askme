@@ -6,6 +6,8 @@ gem 'rails', '4.2.6'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'rails_12factor'
+
 gem 'recaptcha', require: 'recaptcha/rails'
 
 group :development, :test do
