@@ -70,7 +70,7 @@ class QuestionsController < ApplicationController
     unless current_user.present?
       verify_recaptcha(model: model)
     else
-      true
+      verify_recaptcha(model: model)
     end
   end
 end
